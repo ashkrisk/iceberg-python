@@ -122,6 +122,7 @@ from pyiceberg.io import (
     S3_ROLE_SESSION_NAME,
     S3_SECRET_ACCESS_KEY,
     S3_SESSION_TOKEN,
+    S3_CA_PATH,
     FileIO,
     InputFile,
     InputStream,
@@ -515,6 +516,9 @@ class PyArrowFileIO(FileIO):
         if s3_anonymous := self.properties.get(S3_ANONYMOUS):
             client_kwargs["anonymous"] = strtobool(s3_anonymous)
 
+        if ca_path := self.properties.get(S3_CA_PATH):
+            client_kwargs["tls_ca_file_path"] = ca_path
+        
         return S3FileSystem(**client_kwargs)
 
     def _initialize_azure_fs(self) -> FileSystem:
