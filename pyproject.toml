@@ -63,7 +63,7 @@ pyparsing = ">=3.1.0,<4.0.0"
 zstandard = ">=0.13.0,<1.0.0"
 tenacity = ">=8.2.3,<10.0.0"
 pyroaring = ">=1.0.0,<2.0.0"
-pyarrow = { version = ">=17.0.0", optional = true }
+pyarrow = { version = ">=21.0.0", optional = true }
 google-auth = { version = ">=2.4.0", optional = true }
 pandas = { version = ">=1.0.0,<3.0.0", optional = true }
 duckdb = { version = ">=0.5.0,<2.0.0", optional = true }
@@ -81,7 +81,8 @@ gcsfs = { version = ">=2023.1.0", optional = true }
 huggingface-hub = { version = ">=0.24.0", optional = true }
 psycopg2-binary = { version = ">=2.9.6", optional = true }
 sqlalchemy = { version = "^2.0.18", optional = true }
-bodo = { version = ">=2025.7.4", optional = true }
+# bodo claims to need pyarrow 19
+# bodo = { version = ">=2025.7.4", optional = true }
 daft = { version = ">=0.5.0", optional = true }
 cachetools = ">=5.5,<7.0"
 pyiceberg-core = { version = ">=0.5.1,<0.7.0", optional = true }
@@ -310,7 +311,7 @@ pyarrow = ["pyarrow", "pyiceberg-core"]
 pandas = ["pandas", "pyarrow"]
 duckdb = ["duckdb", "pyarrow"]
 ray = ["ray", "pyarrow", "pandas"]
-bodo = ["bodo"]
+# bodo = ["bodo"]
 daft = ["daft"]
 polars = ["polars"]
 snappy = ["python-snappy"]
